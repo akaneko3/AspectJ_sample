@@ -21,6 +21,7 @@
 
   <build>
     <plugins>
+      <!-- Maven Eclipse Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
@@ -53,6 +54,7 @@
         <configuration>
           <complianceLevel>1.8</complianceLevel>
           <encoding>${project.build.sourceEncoding}</encoding>
+          <ajdtBuildDefFile>build.ajproperties</ajdtBuildDefFile>
         </configuration>
       </plugin>
 
