@@ -39,7 +39,7 @@
         <executions>
           <execution>
             <goals>
-                <goal>properties</goal>
+              <goal>properties</goal>
             </goals>
           </execution>
         </executions>
