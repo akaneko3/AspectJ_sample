@@ -11,6 +11,7 @@
 
   <name>AspectJSample</name>
   <url>https://eclipse.org/aspectj/</url>
+  <description>Compile-time weaving with AspectJ.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
