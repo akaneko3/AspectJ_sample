@@ -14,20 +14,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <org.aspectj.version>1.8.7</org.aspectj.version>
+    <java.version>1.8</java.version>
   </properties>
 
   <build>
     <plugins>
-      <!-- Maven Eclipse Plugin -->
+      <!-- Maven Compiler Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.10</version>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
         <configuration>
-          <ajdtVersion>1.5</ajdtVersion>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
 
@@ -35,14 +34,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>aspectj-maven-plugin</artifactId>
-        <version>1.7</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjtools</artifactId>
-            <version>${org.aspectj.version}</version>
-          </dependency>
-        </dependencies>
+        <version>1.8</version>
         <executions>
           <execution>
             <goals>
@@ -58,26 +50,6 @@
         </configuration>
       </plugin>
 
-      <!-- Build Helper Maven Plugin -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.9.1</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>src/main/aspectj</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
       <!-- Exec Maven Plugin -->
       <plugin>
@@ -97,54 +69,6 @@
         </executions>
       </plugin>
     </plugins>
-
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>
-                      aspectj-maven-plugin
-                    </artifactId>
-                    <versionRange>[1.7,)</versionRange>
-                    <goals>
-                      <goal>test-compile</goal>
-                      <goal>compile</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>
-                      build-helper-maven-plugin
-                    </artifactId>
-                    <versionRange>[1.9.1,)</versionRange>
-                    <goals>
-                      <goal>add-source</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
 
   <dependencies>
@@ -160,7 +84,7 @@
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjrt</artifactId>
-      <version>${org.aspectj.version}</version>
+      <version>1.8.7</version>
     </dependency>
   </dependencies>
 </project>
